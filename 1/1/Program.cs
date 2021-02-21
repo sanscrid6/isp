@@ -10,7 +10,7 @@ namespace laba1
     class Program
     {
         static int[,] init(int size)
-        {
+        {   
             int[,] arr = new int[size, size];
             for (int i = 0; i < size; i++)
             {
@@ -95,7 +95,6 @@ namespace laba1
                     {
                         Console.Write("{0}\t", arr[i,j]);
                     }
-  
                 }
                 Console.Write('\n');
             }
@@ -114,15 +113,11 @@ namespace laba1
                     {
                         return false;
                     }
-                
                 }
-
             }
             return true;
         }
-
-
-        static void Main(string[] args)
+        static void Main()
         {
             Console.CursorVisible = false;
             int size = 0;
@@ -138,7 +133,6 @@ namespace laba1
                 catch
                 {
                     Console.Clear();
-                    continue;
                 }
 
             } while (size <= 2);
