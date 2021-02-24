@@ -139,7 +139,7 @@ namespace laba1
             var arr = init(size);
             draw(arr);
             int[] emptyPlaceCoordinates = { size - 1, size - 1 };
-            while (isWinner(arr) == false)
+            while (!isWinner(arr))
             {
                 var key = Console.ReadKey().Key;
                 if (key == ConsoleKey.DownArrow)
