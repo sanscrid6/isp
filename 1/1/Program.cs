@@ -40,7 +40,6 @@ namespace laba1
                 emptyPlaceCoordinates[0]++;
             }
             return emptyPlaceCoordinates;
-
         }
         static int[] moveTop(int[,] arr, int emptyPlaceI, int emptyPlaceJ)
         {
@@ -65,7 +64,6 @@ namespace laba1
                 emptyPlaceCoordinates[1]--;
             }
             return emptyPlaceCoordinates;
-
         }
         static int[] moveRight(int[,] arr, int emptyPlaceI, int emptyPlaceJ)
         {
@@ -79,7 +77,6 @@ namespace laba1
                 emptyPlaceCoordinates[1]++;
             }
             return emptyPlaceCoordinates;
-
         }
         static void draw(int[,] arr)
         {
