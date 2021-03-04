@@ -14,7 +14,6 @@ namespace _2
             if (c >= 48 && c < 58)
             {
                 return true;
-
             }
             return false;
         }
@@ -32,7 +31,7 @@ namespace _2
             }
             for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine($"{i} встречается {amount[i]} раз");
+                Console.WriteLine($"{i} occurs {amount[i]} times");
             }
 
         }
@@ -56,10 +55,10 @@ namespace _2
             int switcher = 0;
            while (switcher!=4)
             {
-                Console.WriteLine("1 - вывод даты в 2 форматах и подсчет цифр в них\n" +
-                                  "2 - обмен порядка слов на обратный\n" +
-                                  "3 - вывод 30 рандомных символов из строки 256 символов\n"+
-                                  "4 - выход из программмы");
+                Console.WriteLine("1 - output date in 2 formats and count amount of digits\n" +
+                                  "2 - reverse words in string\n" +
+                                  "3 - output 30 random symbols from 256 symbol string\n"+
+                                  "4 - exit");
                 try
                 {
                     switcher = Convert.ToInt32(Console.ReadLine());
@@ -83,7 +82,6 @@ namespace _2
                     case 2:
                         string str = Console.ReadLine();
                         Console.WriteLine(ReverseWords(str));
-                        Console.WriteLine(str);
                         break;
                     case 3:
                         RandSymbols();
