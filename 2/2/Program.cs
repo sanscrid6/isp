@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 
 namespace _2
 {
@@ -42,13 +41,15 @@ namespace _2
             str = String.Join(" ", reversedArr);
             return str;
         }
-        static void RandSymbols()
+        static int CountPower(ulong x)
         {
-            Random rand = new Random();
-            string bigStr = "NqLyRDTNPiFLvCyaPPJhTwgmBbzROIrzYAsISOBWNAnaStpqIPQEWslBDzoulqjerzfDPnmqDgkZErFLglVNuWLzkgXlQKoNxvulKvjopQJdXmxOYjLqtkCEWXxcRimXuzmyBcwKeFGYAUnKZdDaNoZeWTKBeXYewCyWqgSagwBjEhKXcEEkcgVNmvTlRrHioDTGQBKTQWCBaRQsDVWmlgUDMuwTAlUasJoHSexnSNJZzNGCVzUIEjHXyKHzCfXi";
-            for (int i = 0; i < 30; i++)
-                Console.Write("{0} ", bigStr[rand.Next(256)]);
-            Console.WriteLine();
+            int power = 0;
+            while (Convert.ToBoolean(x))
+            {
+                x = x / 2;
+                power += Convert.ToInt32(x);
+            }
+            return power;
         }
         static void Main(string[] args)
         {
@@ -57,7 +58,7 @@ namespace _2
             {
                 Console.WriteLine("1 - output date in 2 formats and count amount of digits\n" +
                                   "2 - reverse words in string\n" +
-                                  "3 - output 30 random symbols from 256 symbol string\n"+
+                                  "3 - count power of 2 in diaposon\n"+
                                   "4 - exit");
                 try
                 {
@@ -84,7 +85,19 @@ namespace _2
                         Console.WriteLine(ReverseWords(str));
                         break;
                     case 3:
-                        RandSymbols();
+                        Console.WriteLine("Enter a and b");
+                        ulong b, a;
+                        try
+                        {
+                            a = Convert.ToUInt64(Console.ReadLine());
+                            b = Convert.ToUInt64(Console.ReadLine());
+                            int power = CountPower(b) - CountPower(a-1);
+                            Console.WriteLine($"Power of 2 is {power}");
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Incorrect input");
+                        }
                         break;
                     default:
                         Console.Clear();
