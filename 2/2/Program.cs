@@ -26,13 +26,11 @@ namespace _2
                     var t = Convert.ToInt32(str[i]-48);
                     amount[Convert.ToInt32(str[i])-48]++;
                 }
-
             }
             for (int i = 0; i < 10; i++)
             {
                 Console.WriteLine($"{i} occurs {amount[i]} times");
             }
-
         }
         static string ReverseWords(string str)
         {
@@ -41,13 +39,13 @@ namespace _2
             str = String.Join(" ", reversedArr);
             return str;
         }
-        static int CountPower(ulong x)
+        static ulong CountPower(ulong x)
         {
-            int power = 0;
+            ulong power = 0;
             while (Convert.ToBoolean(x))
             {
                 x = x / 2;
-                power += Convert.ToInt32(x);
+                power += x;
             }
             return power;
         }
@@ -58,7 +56,7 @@ namespace _2
             {
                 Console.WriteLine("1 - output date in 2 formats and count amount of digits\n" +
                                   "2 - reverse words in string\n" +
-                                  "3 - count power of 2 in diaposon\n"+
+                                  "3 - count max power of 2 in diaposon product\n"+
                                   "4 - exit");
                 try
                 {
@@ -91,8 +89,20 @@ namespace _2
                         {
                             a = Convert.ToUInt64(Console.ReadLine());
                             b = Convert.ToUInt64(Console.ReadLine());
-                            int power = CountPower(b) - CountPower(a-1);
-                            Console.WriteLine($"Power of 2 is {power}");
+                            if (a > b)
+                            {
+                                Console.WriteLine("Incorrect input");
+                            }
+                            else if (a == 0)
+                            {
+                                Console.WriteLine("Product is zero");
+                            }
+                            else 
+                            {
+                                ulong power = CountPower(b) - CountPower(a - 1);
+                                Console.WriteLine($"Power of 2 is {power}");
+                            }
+                           
                         }
                         catch
                         {
