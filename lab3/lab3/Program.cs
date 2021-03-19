@@ -20,8 +20,8 @@ namespace lab3
         protected string[] road;
         protected string[] car;
 
-        public Vehicle(uint weight = 0, uint age = 0, uint fuelCapacity = 0,
-            uint currentFuel = 0,uint fuelUsage = 0, string brand = "No brand", string type = "No type")
+        public Vehicle(uint weight, uint age, uint fuelCapacity,
+            uint currentFuel,uint fuelUsage, string brand, string type)
         {
             id = amount + 1;
             this.weight = weight;
@@ -243,13 +243,7 @@ namespace lab3
     {
         public static void Main(string[] args)
         {
-            //List<Vehicle> vehicles = new List<Vehicle>();
             Vehicle v;
-            /*string gasStation = " ____ _   _ _    ____ \n" +
-                                "/    | | | | |  |  __|\n" +
-                                "| |  | | | | |__| _|  \n" +
-                                "\\____|\\___/|___|_|";
-            Console.WriteLine(gasStation);*/
             int sw = 5;
             uint weight = 0, age = 0, fuelCapacity = 0, currentFuel = 0, fuelUsage = 0;
             string brand = "No brand", type = "No info";
