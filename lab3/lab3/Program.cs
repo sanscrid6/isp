@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 
 
@@ -108,6 +107,19 @@ namespace lab3
             Console.WriteLine($"Id is {id}. Type of this vehicle is {type}. Brand is {brand}. Weight is {weight}." +
                               $" Age is {age}. Fuel capacity is {fuelCapacity}. Current fuel level is " +
                               $"{(float)currentFuel/fuelCapacity*100}%.");
+        }
+        
+        public string this[int index]
+        {
+            get
+            {
+                if (index < 7)
+                {
+                    return car[index];
+                }
+
+                return "Incorrect index";
+            }
         }
 
         public void Move(uint distance)
