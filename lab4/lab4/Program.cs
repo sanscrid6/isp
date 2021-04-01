@@ -56,6 +56,7 @@ namespace lab4
                             languageChange = mss == "1049" ? true : false;
                             pressedKeys[i] = false;
                             if (i == 20) capse = !capse;
+                            //pressedKeys[160] - shift
                             string ch = verifyKey(i, languageChange, pressedKeys[160]);
                             if (pressedKeys[160] ^ capse) ch = ch.ToUpper();
                             //Console.Write(ch);
