@@ -85,7 +85,7 @@ namespace lab4
             else if (code == 34) key = "[Page Down]";
             else if (code == 35) key = "[End]";
             else if (code == 36) key = "[Home]";
-            else if (code == 37) key = "Left]";
+            else if (code == 37) key = "[Left]";
             else if (code == 38) key = "[Up]";
             else if (code == 39) key = "[Right]";
             else if (code == 40) key = "[Down]";
