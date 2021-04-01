@@ -30,7 +30,7 @@ namespace lab4_task2
         
         public static void Main(string[] args)
         {
-            Console.WriteLine("Abs "+abs(-2));
+            Console.WriteLine("Abs(-2) is"+abs(-2));
             Console.WriteLine("Sum of 1 and 5 is " + sum(1,5));
             Console.WriteLine("Subtraction of 1 and 5 is " + sub(1,5));
             Console.WriteLine("Sin(10) is " + sin(10));
