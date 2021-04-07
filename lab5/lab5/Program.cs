@@ -211,9 +211,16 @@ namespace lab5
 
     class Bus : Car
     {
+        enum Capacity: uint
+        {
+            Shuttlebus = 20,
+            OneFloorBus = 40,
+            TwoFloorBus = 70
+        }
+
+        private readonly Capacity type;
         protected override void InitImages()
         {
-            
             images = new MoveStuff();
             images.roadTemplate = new string[10];
             images.vehicleImage = new string[10];
@@ -238,8 +245,11 @@ namespace lab5
             images.roadTemplate[8] = " ";
             images.roadTemplate[9] = "-";
         }
-        public Bus(uint weight, uint age, uint fuelCapacity, uint currentFuel,uint fuelUsage, string brand)
+        public Bus(uint weight, uint age, uint fuelCapacity, uint currentFuel,uint fuelUsage, string brand, uint capacity)
         {
+            if (capacity <= (uint) Capacity.Shuttlebus) type = Capacity.Shuttlebus;
+            else if (capacity <= (uint) Capacity.OneFloorBus) type = Capacity.OneFloorBus;
+            else type = Capacity.TwoFloorBus;
             Weight = weight;
             Age = age;
             FuelCapacity = fuelCapacity;
@@ -258,7 +268,7 @@ namespace lab5
         }
         public override void Info()
         {
-            Console.WriteLine($"Id is {id}. Type is school bus. Brand is {Brand}. Weight is {Weight}." +
+            Console.WriteLine($"Id is {id}. Type is {type}. Brand is {Brand}. Weight is {Weight}." +
                               $" Age is {Age}. Fuel capacity is {FuelCapacity}. Current fuel level is " +
                               $"{(float)CurrentFuel/FuelCapacity*100}%.");
         }
@@ -335,7 +345,7 @@ namespace lab5
 
         public static void Main(string[] args)
         {
-            uint weight = 0, age = 0, fuelCapacity = 0, currentFuel = 0, fuelUsage = 0;
+            uint weight = 0, age = 0, fuelCapacity = 0, currentFuel = 0, fuelUsage = 0, capacity = 0;
             string brand = "No brand", type = "No info";
             int choose = 0;
             try
@@ -438,13 +448,15 @@ namespace lab5
                         fuelUsage = Convert.ToUInt32(Console.ReadLine());
                         Console.WriteLine("Enter brand");
                         brand = Console.ReadLine();
+                        Console.WriteLine("Enter max amount of people");
+                        capacity = Convert.ToUInt32(Console.ReadLine());
                    }
                    catch
                    {
                         Console.WriteLine("You typed smth incorrect");
                         return;
                    }
-                   bus = new Bus(weight, age, fuelCapacity, currentFuel, fuelUsage, brand);
+                   bus = new Bus(weight, age, fuelCapacity, currentFuel, fuelUsage, brand, capacity);
                    while (switcher!=3) 
                    {
                         Console.WriteLine("1 - Get info\n2 - Travel to somewhere\n3 - Exit"); 
