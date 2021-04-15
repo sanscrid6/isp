@@ -73,6 +73,7 @@ namespace lab5
             Brand = brand;
             InitImages();
         }
+        
         public override void Info()
         {
             Console.WriteLine($"Id is {id}. Type is default car. Brand is {Brand}. Weight is {Weight}." +
@@ -80,14 +81,14 @@ namespace lab5
                               $"{(float)CurrentFuel/FuelCapacity*100}%.");
         }
         
-        public virtual void Move(uint distance)
+        public void Move(uint distance)
         {
             if(distance*FuelUsage>FuelCapacity)
             {
                 Console.WriteLine("This distance too big for your car");
                 return;
             }
-            else if (distance*FuelUsage>CurrentFuel)
+            if (distance*FuelUsage>CurrentFuel)
             {
                 Console.WriteLine(
                     "Too big distance, not enought fuel. Go to gas station. Type yes to go to gas station");
@@ -109,28 +110,28 @@ namespace lab5
             }
             for (int k = 0; k < distance; k++)
             {
-                string[] temp = new string[7];
+                string[] temp = new string[images.vehicleImage.Length];
                 for (int i = 0; i < distance-k; i++)
                 {
-                    for (int j = 0; j < 7; j++)
+                    for (int j = 0; j < temp.Length; j++)
                     {
                         temp[j]+=images.roadTemplate[j];
                     }
                 
                 }
-                for (int i = 0; i < 7; i++)
+                for (int i = 0; i < temp.Length; i++)
                 {
                     temp[i]+=images.vehicleImage[i];
                   
                 }
                 for (int j = 0; j < k; j++)
                 {
-                    for (int i = 0; i < 7; i++)
+                    for (int i = 0; i < temp.Length; i++)
                     {
                         temp[i]+=images.roadTemplate[i];
                     }
                 }
-                for (int i = 0; i < 7; i++)
+                for (int i = 0; i < temp.Length; i++)
                 {
                  
                     Console.WriteLine(temp[i]);
@@ -142,14 +143,15 @@ namespace lab5
             CurrentFuel -= distance * FuelUsage;
             
         }
-        public virtual void Move(uint distance, uint speed)
+        
+        public void Move(uint distance, uint speed)
         {
             if(distance*FuelUsage>FuelCapacity)
             {
                 Console.WriteLine("This distance too big for your car");
                 return;
             }
-            else if (distance*FuelUsage>CurrentFuel)
+            if (distance*FuelUsage>CurrentFuel)
             {
                 Console.WriteLine(
                     "Too big distance, not enought fuel. Go to gas station. Type yes to go to gas station");
@@ -207,6 +209,14 @@ namespace lab5
             CurrentFuel -= distance * FuelUsage;
             
         }
+        
+        public void Draw()
+        {
+            foreach (var str in images.vehicleImage)
+            {
+                Console.WriteLine(str);
+            }
+        }
     }
 
     class Bus : Car
@@ -245,6 +255,7 @@ namespace lab5
             images.roadTemplate[8] = " ";
             images.roadTemplate[9] = "-";
         }
+        
         public Bus(uint weight, uint age, uint fuelCapacity, uint currentFuel,uint fuelUsage, string brand, uint capacity)
         {
             if (capacity <= (uint) Capacity.Shuttlebus) type = Capacity.Shuttlebus;
@@ -266,91 +277,118 @@ namespace lab5
             Brand = brand;
             InitImages();
         }
+        
         public override void Info()
         {
             Console.WriteLine($"Id is {id}. Type is {type}. Brand is {Brand}. Weight is {Weight}." +
                               $" Age is {Age}. Fuel capacity is {FuelCapacity}. Current fuel level is " +
                               $"{(float)CurrentFuel/FuelCapacity*100}%.");
         }
-        
-        public override void Move(uint distance)
+    }
+
+    class OldCar : Car
+    {
+        protected override void InitImages()
         {
-            if(distance*FuelUsage>FuelCapacity)
-            {
-                Console.WriteLine("This distance too big for your car");
-                return;
-            }
-            else if (distance*FuelUsage>CurrentFuel)
-            {
-                Console.WriteLine(
-                    "Too big distance, not enought fuel. Go to gas station. Type yes to go to gas station");
-                var key = Console.ReadLine().ToLower();
-                if ( key == "yes" || key == "y")
-                {
-                    CurrentFuel = FuelCapacity;
-                }
-                else
-                {
-                    Console.WriteLine("Without enought fuel vehicle can't reach your destination");
-                    return;
-                }
-            }
-            else if (distance > 145)
-            {
-                Console.WriteLine("Distance too big for console");
-                return;
-            }
-            for (int k = 0; k < distance; k++)
-            {
-                string[] temp = new string[10];
-                for (int i = 0; i < distance-k; i++)
-                {
-                    for (int j = 0; j < 10; j++)
-                    {
-                        temp[j]+=images.roadTemplate[j];
-                    }
-                
-                }
-                for (int i = 0; i <10; i++)
-                {
-                    temp[i]+=images.vehicleImage[i];
-                  
-                }
-                for (int j = 0; j < k; j++)
-                {
-                    for (int i = 0; i < 10; i++)
-                    {
-                        temp[i]+=images.roadTemplate[i];
-                    }
-                }
-                for (int i = 0; i < 10; i++)
-                {
-                 
-                    Console.WriteLine(temp[i]);
-                }
-                Thread.Sleep(300);
-                Console.Clear();
-            }
-            Console.WriteLine("You reach destination");
-            CurrentFuel -= distance * FuelUsage;
+            images = new MoveStuff();
+            images.vehicleImage = new string[12];
+            images.vehicleImage[0] = "            __-------__";
+            images.vehicleImage[1] = "          / _---------_ \\";
+            images.vehicleImage[2] = "         / /           \\ \\";
+            images.vehicleImage[3] = "         | |           | |";
+            images.vehicleImage[4] = "         |_|___________|_|";
+            images.vehicleImage[5] = "     /-\\|                 |/-\\";
+            images.vehicleImage[6] = "    | _ |\\       0       /| _ |";
+            images.vehicleImage[7] = "    |(_)| \\      !      / |(_)|";
+            images.vehicleImage[8] = "    |___|__\\_____!_____/__|___|";
+            images.vehicleImage[9] = "    [_________|MEIN1|_________]";
+            images.vehicleImage[10] = "     ||||    ~~~~~~~~     ||||";
+            images.vehicleImage[11] = "     `--'                 `--'";
+
+        }
+        
+        public OldCar(uint weight, uint age, string brand)
+        {
+            Weight = weight;
+            if (age > 130) age = 130;
+            Age = age;
+            Brand = brand;
+            InitImages();
+        }
+
+        public override void Info()
+        {
+            Console.WriteLine($"This is old car of {2021-Age} year. It's age is {Age}. Brand is {Brand}");
         }
     }
+    
+    class FirstCar : Car
+    {
+        protected override void InitImages()
+        {
+            images = new MoveStuff();
+            images.vehicleImage = new string[20];
+            images.vehicleImage[0] = "                                                                 __......_";
+            images.vehicleImage[1] = "                                  .---.       _________    _.---`.-----_.'|";
+            images.vehicleImage[2] = "                                 ;     `.   (_   (_  _('\\.' .--``   _.'   |";
+            images.vehicleImage[3] = "                                 `._//_.'    |   |   |   |.'     .-`     .'";
+            images.vehicleImage[4] = "                       ,-. ,-.     //  (| _.' _.'_..-`   |..___.'        |";
+            images.vehicleImage[5] = "        _             (O)_(O)_)_  //    ;(..(..(        .'     |        .'";
+            images.vehicleImage[6] = "     ,-'\"'--------` -| |-.\\//     :|     |       /     '=|        |";
+            images.vehicleImage[7] = "    ,'|`.            `---` \\\\      |/___ /_......'        '-.....-`/";
+            images.vehicleImage[8] = "    |I|II\\________ .---.____|| __..'    /       |        /   ____  |";
+            images.vehicleImage[9] = "  .'|I|II|        `----._`-.  `-..____.'        |____...`.-``    ```-..";
+            images.vehicleImage[10] ="  / |I|II|   .-````````-.`-.`.                         .'' .-``````-. ``.";
+            images.vehicleImage[11] =
+                ".  /`.|II|  ' .-``````-. `  \\ `.                      / / / \\\\ || // \\ \\ \\";
+            images.vehicleImage[12] =
+                "' .---.`.| / / \\ || // \\ \\  \\  \\--------------------; : .   \\\\||//   . : \\";
+            images.vehicleImage[13] = "; '   //  : .   \\||//   . :  \\  \\__________________:  | :----````----; ' |";
+            images.vehicleImage[14] =
+                "\\ './/   . :----````----; '   | |==================|  ; ;----.__,----: : \\";
+            images.vehicleImage[15] =
+                "  `. `-...' ;----.__,----: :`--|_| .-. \\ '.// || \\.'-.| '   //||\\\\   ' ;-`";
+            images.vehicleImage[16] = "   `-....; '   //||\\   ' ;            `. `-....-` .'  \\ '.// || \\\\.' /";
+            images.vehicleImage[17] = "          \\ '.// || \\.' /  .-.          `-......-' _.-.`. `-....-` .'";
+            images.vehicleImage[18] = "     .-._ `. `-....-` .'                .-.              `-......-'  -.";
+            images.vehicleImage[19] = " .-._       `-......-'    .-._                   _.-.        .-._\"";
+
+        }
+        
+        public FirstCar()
+        {
+            Weight = 300;
+            Age = 131;
+            Brand = "Benz Truck";
+            InitImages();
+        }
+
+        public override void Info()
+        {
+            Console.WriteLine($"This is first car. It's age is {Age}. Brand is {Brand}");
+        }
+        
+    }
+
     class Program
     {
         enum Types
         {
             Car = 1,
-            Bus
+            Bus,
+            OldCar,
+            FirstCar
         }
 
         public static void Main(string[] args)
         {
             uint weight = 0, age = 0, fuelCapacity = 0, currentFuel = 0, fuelUsage = 0, capacity = 0;
             string brand = "No brand", type = "No info";
+            int sw;
             int choose = 0;
             try
             {
-                Console.WriteLine("1 - Create car\n2 - Create bus");
+                Console.WriteLine("1 - Create Car\n2 - Create Bus\n3 - Create Old Car\n4 - Create First Car");
                 choose = Convert.ToInt32(Console.ReadLine());
             }
             catch 
@@ -362,7 +400,7 @@ namespace lab5
             {
                case (int)Types.Car: 
                    Car car;
-                   int sw = 5;
+                   sw = 5;
                    try
                    {
                         Console.WriteLine("Enter weight");
@@ -433,7 +471,7 @@ namespace lab5
                    break;
                case (int)Types.Bus:
                    Bus bus;
-                   int switcher = 5;
+                   sw = 5;
                    try
                    {
                         Console.WriteLine("Enter weight");
@@ -457,18 +495,18 @@ namespace lab5
                         return;
                    }
                    bus = new Bus(weight, age, fuelCapacity, currentFuel, fuelUsage, brand, capacity);
-                   while (switcher!=3) 
+                   while (sw!=3) 
                    {
                         Console.WriteLine("1 - Get info\n2 - Travel to somewhere\n3 - Exit"); 
                         try
                         {
-                            switcher = Convert.ToInt32(Console.ReadLine());
+                            sw = Convert.ToInt32(Console.ReadLine());
                         }
                         catch
                         {
                             Console.Clear();
                         }
-                        switch (switcher)
+                        switch (sw)
                         {
                             case 1:
                                 bus.Info();
@@ -490,6 +528,74 @@ namespace lab5
                                 Console.Clear();
                                 break;
                         }
+                   }
+                   break;
+               case (int)Types.OldCar:
+                   try
+                   {
+                       Console.WriteLine("Enter weight");
+                       weight = Convert.ToUInt32(Console.ReadLine());
+                       Console.WriteLine("Enter age");
+                       age = Convert.ToUInt32(Console.ReadLine());
+                       Console.WriteLine("Enter brand");
+                       brand = Console.ReadLine();
+                   }
+                   catch
+                   {
+                       Console.WriteLine("Incorrect input");
+                       return;
+                   }
+                   sw = 5;
+                   var oldCar = new OldCar(weight, age, brand);
+                   while (sw != 3)
+                   {
+                       Console.WriteLine("1 - Get info\n2 - Draw car\n3 - Exit");
+                       try
+                       {
+                           sw = Convert.ToInt32(Console.ReadLine());
+                       }
+                       catch
+                       {
+                       }
+                       switch (sw)
+                       {
+                           case 1:
+                               oldCar.Info();
+                               break;
+                           case 2:
+                               oldCar.Draw();
+                               break;
+                           default:
+                               Console.Clear();
+                               break;
+                       }
+                   }
+                   break;
+               case (int)Types.FirstCar:
+                   sw = 5;
+                   var oldestCar = new FirstCar();
+                   while (sw != 3)
+                   {
+                       Console.WriteLine("1 - Get info\n2 - Draw car\n3 - Exit");
+                       try
+                       {
+                           sw = Convert.ToInt32(Console.ReadLine());
+                       }
+                       catch 
+                       {
+                       }
+                       switch (sw)
+                       {
+                           case 1:
+                               oldestCar.Info();
+                               break;
+                           case 2:
+                               oldestCar.Draw();
+                               break;
+                           default:
+                               Console.Clear();
+                               break;
+                       }
                    }
                    break;
                default:
