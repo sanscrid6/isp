@@ -235,6 +235,13 @@ namespace lab6
                    Console.WriteLine("Unknown type");
                    break;
             }
+
+            Car car1 = new Car(123, 123, 123, 123, 1, "benz truck");
+            Car car2 = (Car)car1.Clone();
+            if (car1 != car2)
+            {
+                Console.WriteLine("car1 not equal car2");
+            }
         }
     }
 }

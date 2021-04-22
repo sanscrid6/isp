@@ -4,7 +4,7 @@ using System.Threading;
 namespace lab6
 {
     class Car : IVehicle, ICloneable, IComparable
-        {
+    {       
             protected uint Weight { get; set; }
             protected uint Age { get; set; }
             protected uint FuelCapacity { get; set;}
@@ -227,5 +227,5 @@ namespace lab6
                 }
                 throw new Exception("Cannot compare two cars");
             }
-        }
+    }
 }

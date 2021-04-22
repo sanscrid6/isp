@@ -4,7 +4,17 @@
     <projectFile>lab6/lab6.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c97f52e6-bf37-4106-89ab-2d0635d5d4a0" name="Default Changelist" comment="" />
+    <list default="true" id="c97f52e6-bf37-4106-89ab-2d0635d5d4a0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../lab5/.idea/.idea.lab5/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab5/.idea/.idea.lab5/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/.idea/.idea.lab5/.idea/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/lab5/bin/Debug/lab5.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../lab5/lab5/bin/Debug/lab5.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/lab5/bin/Debug/lab5.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../lab5/lab5/bin/Debug/lab5.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/lab5/obj/Debug/lab5.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../lab5/lab5/obj/Debug/lab5.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab5/lab5/obj/Debug/lab5.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../lab5/lab5/obj/Debug/lab5.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.lab6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.lab6/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab6/Car.cs" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/Car.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab6/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/lab6/Program.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,8 +32,8 @@
       <option value="$PROJECT_DIR$/lab6/Bus.cs" />
       <option value="$PROJECT_DIR$/lab6/OldCar.cs" />
       <option value="$PROJECT_DIR$/lab6/FirstCar.cs" />
-      <option value="$PROJECT_DIR$/lab6/Program.cs" />
       <option value="$PROJECT_DIR$/lab6/Car.cs" />
+      <option value="$PROJECT_DIR$/lab6/Program.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rLrxmnJyKxh9H0DyqseatuQOwt" />
@@ -68,6 +78,8 @@
       <updated>1618766465804</updated>
       <workItem from="1618766483438" duration="3277000" />
       <workItem from="1618770653384" duration="2223000" />
+      <workItem from="1619038696537" duration="1834000" />
+      <workItem from="1619082039269" duration="304000" />
     </task>
     <servers />
   </component>
