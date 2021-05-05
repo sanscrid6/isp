@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace lab7
 {
-    class Rational: ICloneable, IComparable
+    class Rational: IComparable
     {
         private int n { get; set; }
         private uint m;
@@ -39,7 +39,7 @@ namespace lab7
         public Rational()
         {
             n = 0;
-            m = 0;
+            m = 1;
         }
 
         public Rational(int n, uint m)
@@ -130,41 +130,28 @@ namespace lab7
         public static Rational operator *(Rational r1, Rational r2)
         {
             Rational r = new Rational();
-            if (r1.n < 0 && r2.n < 0)
-            {
-                r.n = r1.n * r2.n;
-                r.m = r1.m * r2.m;
-                if (GCD((uint)r.n, r.m) != 1)
-                {
-                    uint gcd = GCD((uint)r.n, r.m);
-                    r.n /=(int)gcd;
-                    r.m /= gcd;
-                }
-            }
-            else
-            {
-                r.n = r1.n * r2.n;
-                r.m = r1.m * r2.m;
-                if (GCD((uint)Math.Abs(r.n), (uint)Math.Abs(r.m)) != 1)
-                {
-                    uint gcd = GCD((uint) Math.Abs(r.n), (uint)Math.Abs(r.m));
-                    r.n /=(int)gcd;
-                    r.m /= gcd;
-                }
+            r.n = r1.n * r2.n; 
+            r.m = r1.m * r2.m; 
+            if (GCD((uint)Math.Abs(r.n), (uint)Math.Abs(r.m)) != 1) 
+            { 
+                uint gcd = GCD((uint) Math.Abs(r.n), (uint)Math.Abs(r.m)); 
+                r.n /=(int)gcd; 
+                r.m /= gcd;
             }
             return r;
         }
         
         public static Rational operator /(Rational r1, Rational r2)
         {
-            Rational temp = new Rational(r2.n < 0 ? (int) (-1 * r2.m ): (int)r2.m, (uint)Math.Abs(r2.n));
+            Rational temp = new Rational(r2.n < 0 ? (int) (-1 * r2.m ): (int)r2.m, (uint)Math.Abs(r2.n));//swap n and m
             return r1 * temp;
         }
 
         public static bool operator <(Rational r1, Rational r2)
         {
-            Double r = (double)r1 - (double)r2;
-            if (r < 0) return true;
+            Rational r = r1 - r2;
+            Double dist = (double)r;
+            if (dist < 0) return true;
             return false;
         }
 
@@ -222,7 +209,7 @@ namespace lab7
 
         public static Rational FromStr(string str, string flag)
         {
-            if (flag == "default") return (Rational) str;
+            if (flag == "default") return (Rational)str;
             if (flag == "text")
             {
                 Rational r = new Rational();
@@ -246,7 +233,7 @@ namespace lab7
         public override bool Equals(object obj)
         {
             Rational r = (Rational) obj;
-            if (n == r?.n && m == r.m) return true;
+            if (n == r.n && m == r.m) return true;
             else return false;
         }
 
@@ -255,7 +242,6 @@ namespace lab7
             return $"{n}/{m}";
         }
         
-
         public object Clone()
         {
             return new Rational(this.n, this.m);
@@ -284,11 +270,16 @@ namespace lab7
             Console.WriteLine($"r1 compare to r2 is {r1.CompareTo(r2)}");
             Rational r3 = Rational.FromStr("Numerator is -4, denominator is 5", "text");
             Rational r4 = Rational.FromStr("3/7", "default");
-            Console.WriteLine($"Class object from string \"Numerator is -4, denominator is 5\" is {r3}");
-            Console.WriteLine($"Class object from string \"3\\7\"");
+            Console.WriteLine($"From string: \"Numerator is -4, denominator is 5\" is {r3}");
+            Console.WriteLine($"From string \"{r4}\"");
+            Console.WriteLine($"r3 is {r3}");
+            Console.WriteLine($"r4 is {r4}");
             Console.WriteLine($"r3 - r4 is {r3-r4}");
             Console.WriteLine($"r3 * r4 is {r3*r4}");
             Console.WriteLine($"r3 / r4 is {r3/r4}");
+            r3 = (Rational) "-6/5";
+            r4 = (Rational) "-15/2";
+            Console.WriteLine($"{r3*r4}");
         }
     }
 }
