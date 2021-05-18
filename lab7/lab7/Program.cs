@@ -28,6 +28,7 @@ namespace lab7
             r3 = (Rational) "-6/5";
             r4 = (Rational) "-15/2";
             Console.WriteLine($"{r3*r4}");
+            Console.WriteLine((string)r3);
         }
     }
 }

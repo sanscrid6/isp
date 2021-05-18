@@ -126,7 +126,12 @@ namespace lab7
                 }
                 return r;
             }
-    
+            
+            public static explicit operator string(Rational r)
+            {
+                return r.ToString();
+            }
+
             public static Rational operator *(Rational r1, Rational r2)
             {
                 Rational r = new Rational();

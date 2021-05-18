@@ -1,0 +1,12 @@
+D:\lab\isp\lab8\lab8\bin\Debug\lab8.exe
+D:\lab\isp\lab8\lab8\bin\Debug\lab8.pdb
+D:\lab\isp\lab8\lab8\obj\Debug\lab8.csprojAssemblyReference.cache
+D:\lab\isp\lab8\lab8\obj\Debug\lab8.csproj.CoreCompileInputs.cache
+D:\lab\isp\lab8\lab8\obj\Debug\lab8.exe
+D:\lab\isp\lab8\lab8\obj\Debug\lab8.pdb
+D:\lab\isp\lab 3,5,6,8\lab8\lab8\bin\Debug\lab8.exe
+D:\lab\isp\lab 3,5,6,8\lab8\lab8\bin\Debug\lab8.pdb
+D:\lab\isp\lab 3,5,6,8\lab8\lab8\obj\Debug\lab8.csprojAssemblyReference.cache
+D:\lab\isp\lab 3,5,6,8\lab8\lab8\obj\Debug\lab8.csproj.CoreCompileInputs.cache
+D:\lab\isp\lab 3,5,6,8\lab8\lab8\obj\Debug\lab8.exe
+D:\lab\isp\lab 3,5,6,8\lab8\lab8\obj\Debug\lab8.pdb
