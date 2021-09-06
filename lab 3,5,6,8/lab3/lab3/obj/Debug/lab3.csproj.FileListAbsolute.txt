@@ -1,6 +1,0 @@
-D:\lab\isp\lab3\lab3\bin\Debug\lab3.exe
-D:\lab\isp\lab3\lab3\bin\Debug\lab3.pdb
-D:\lab\isp\lab3\lab3\obj\Debug\lab3.csprojAssemblyReference.cache
-D:\lab\isp\lab3\lab3\obj\Debug\lab3.csproj.CoreCompileInputs.cache
-D:\lab\isp\lab3\lab3\obj\Debug\lab3.exe
-D:\lab\isp\lab3\lab3\obj\Debug\lab3.pdb

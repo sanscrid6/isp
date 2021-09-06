@@ -1,7 +1,0 @@
-D:\lab\isp\1\1\bin\Debug\1.exe.config
-D:\lab\isp\1\1\bin\Debug\1.exe
-D:\lab\isp\1\1\bin\Debug\1.pdb
-D:\lab\isp\1\1\obj\Debug\1.csprojAssemblyReference.cache
-D:\lab\isp\1\1\obj\Debug\1.csproj.CoreCompileInputs.cache
-D:\lab\isp\1\1\obj\Debug\1.exe
-D:\lab\isp\1\1\obj\Debug\1.pdb
