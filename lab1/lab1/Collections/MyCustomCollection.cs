@@ -6,8 +6,11 @@ namespace lab1.Collections
     public class MyCustomCollection<T> : ICustomCollection<T>
     {
         private Node<T> head;
-        private int count;
         private Node<T> current;
+        
+        private int count;
+
+        public event Action<string> OnCollectionChanged = delegate(string s) {  }; 
 
         public void Reset() => current = head;
 
@@ -34,6 +37,7 @@ namespace lab1.Collections
             }
 
             count++;
+            OnCollectionChanged?.Invoke("Добавлен " +item);
         }
 
         public void Remove(T item)
@@ -52,7 +56,7 @@ namespace lab1.Collections
                 curNode = curNode.next;
             }
 
-            //throw new MyException();
+            throw new IncorrectItemException();
         }
 
         private void DeleteNode(Node<T> curNode, Node<T> prevNode)
@@ -76,6 +80,7 @@ namespace lab1.Collections
             {
                 prevNode.next = curNode.next;
             }
+            OnCollectionChanged?.Invoke("Удален " + curNode.data);
         }
 
         public T RemoveCurrent()
@@ -111,7 +116,7 @@ namespace lab1.Collections
             {
                 if (index >= count || index < 0)
                 {
-                    //throw new MyException();
+                    throw new IndexOutOfRangeException();
                 }
 
                 var node = head;
@@ -126,7 +131,7 @@ namespace lab1.Collections
             {
                 if (index >= count || index < 0)
                 {
-                    //throw new MyException();
+                    throw new IndexOutOfRangeException();
                 }
 
                 var node = head;

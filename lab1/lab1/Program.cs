@@ -11,6 +11,8 @@ namespace lab1
 
         public static void Main(string[] args)
         {
+            hotel.OnClientRegistered += () =>  Console.WriteLine("Пользователь зарегистрирован");
+
             while (true)
             {
                 Console.WriteLine("1 - Заполнить информацию о номерах\n" +

@@ -38,10 +38,12 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Collections\IncorrectItemException.cs" />
         <Compile Include="Collections\MyCustomCollection.cs" />
         <Compile Include="Collections\Node.cs" />
         <Compile Include="Entities\Client.cs" />
         <Compile Include="Entities\Hotel.cs" />
+        <Compile Include="Entities\Journal.cs" />
         <Compile Include="Entities\Room.cs" />
         <Compile Include="Entities\Utility.cs" />
         <Compile Include="Interfaces\ICustomCollection.cs" />

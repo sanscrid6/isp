@@ -7,6 +7,13 @@ namespace lab1.Entities
     {
         private MyCustomCollection<Room> rooms = new MyCustomCollection<Room>();
         private MyCustomCollection<Client> clients = new MyCustomCollection<Client>();
+        private Journal journal = new Journal("journal.log.");
+        public event Action OnClientRegistered = delegate {  };
+
+        public Hotel()
+        {
+            rooms.OnCollectionChanged += journal.Log;
+        }
 
         public void AddRooms()
         {
@@ -38,7 +45,8 @@ namespace lab1.Entities
                 room.Client = client;
                 client.Room = room;
                 clients.Add(client);
-                Console.WriteLine("Пользователь зарегистрирован");
+                
+                OnClientRegistered?.Invoke();
             }
         }
 
